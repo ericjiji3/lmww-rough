@@ -3,12 +3,13 @@
     position: relative;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
 .main img{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(0);
 }
 .main img.inactive{
     display: none;

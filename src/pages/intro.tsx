@@ -24,8 +24,15 @@ export default function Intro() {
             setScrollPos(scrollPos + e.deltaY);
             console.log(scrollPos);
             console.log(ref1);
-            var scaleTo = (scrollPos % 1000)/1000;
-            ref1.current?.setAttribute('style', `transform: scale(${scaleTo})`);
+            var scaleTo = scrollPos === 0 ? 0.1 : (scrollPos % 1000)/500;
+            console.log(scaleTo);
+            if(scrollPos < 1000){
+              ref1.current?.setAttribute('style', `transform: translate(-50%, -50%) scale(${scaleTo})`);
+              ref1.current?.setAttribute('style', `left: ${ref1.current?.style.left + scrollPos/10}`);
+            }else if(scrollPos >= 1000 && scrollPos < 2000){
+              ref1.current?.setAttribute('style', `transform: translate(-50%, -50%) scale(${scaleTo})`);
+            }
+            
         }
 
         window.addEventListener('wheel', handleScroll);
